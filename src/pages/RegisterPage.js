@@ -1,6 +1,6 @@
 import { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { authOperations } from '../redux/auth';
+import { connect } from 'react-redux';
+import { authOperations } from '../redux/auth';
 
 const styles = {
   form: {
@@ -28,7 +28,7 @@ class RegisterPage extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    // this.props.onRegister(this.state);
+    this.props.onRegister(this.state);
 
     this.setState({ name: '', email: '', password: '' });
   };
@@ -86,6 +86,8 @@ class RegisterPage extends Component {
 //   onRegister: authOperations.register,
 // };
 
-// export default connect(null, mapDispatchToProps)(RegisterPage);
+const mapDispatchToProps = dispatch => ({
+  onRegister: data => dispatch(authOperations.register(data)),
+});
 
-export default RegisterPage;
+export default connect(null, mapDispatchToProps)(RegisterPage);
