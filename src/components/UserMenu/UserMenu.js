@@ -26,4 +26,8 @@ const mapStateToProps = state => ({
 //   onLogout: authOperations.logOut,
 // };
 
-export default connect(mapStateToProps, null)(UserMenu);
+const mapDispatchToProps = dispatch => ({
+  onLogout: () => dispatch(authOperations.logOut()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
