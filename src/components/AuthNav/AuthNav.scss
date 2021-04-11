@@ -1,0 +1,19 @@
+.AuthNav__List {
+  display: flex;
+}
+
+.AuthNav__Item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.AuthNav__Link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 700;
+  color: #2a363b;
+}
+
+.AuthNav__ActiveLink {
+  color: #e84a5f;
+}

@@ -1,0 +1,13 @@
+.UserMenu {
+  display: flex;
+  align-items: center;
+}
+
+.UserMenu__Avatar {
+  margin-right: 4px;
+}
+
+.UserMenu__Name {
+  margin-right: 12px;
+  font-weight: 700;
+}
