@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { authOperations, authReducer } from '../redux/auth';
+import { authOperations } from '../redux/auth';
 
 const styles = {
   form: {

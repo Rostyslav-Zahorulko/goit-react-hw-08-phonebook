@@ -10,6 +10,8 @@ const {
   loginError,
   logoutSuccess,
   logoutError,
+  getCurrentUserSuccess,
+  getCurrentUserError,
 } = authActions;
 
 const initialUserState = { name: null, email: null };
@@ -18,6 +20,7 @@ const userReducer = createReducer(initialUserState, {
   [registerSuccess]: (_, { payload }) => payload.user,
   [loginSuccess]: (_, { payload }) => payload.user,
   [logoutSuccess]: () => initialUserState,
+  [getCurrentUserSuccess]: (_, { payload }) => payload,
 });
 
 const tokenReducer = createReducer(null, {
@@ -30,6 +33,7 @@ const errorReducer = createReducer(null, {
   [registerError]: (_, { payload }) => payload,
   [loginError]: (_, { payload }) => payload,
   [logoutError]: (_, { payload }) => payload,
+  [getCurrentUserError]: (_, { payload }) => payload,
 });
 
 const authReducer = combineReducers({

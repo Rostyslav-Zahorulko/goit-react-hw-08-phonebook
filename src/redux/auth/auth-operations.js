@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import { authActions } from '../auth';
 
 axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
@@ -23,6 +22,9 @@ const {
   logoutRequest,
   logoutSuccess,
   logoutError,
+  getCurrentUserRequest,
+  getCurrentUserSuccess,
+  getCurrentUserError,
 } = authActions;
 
 const register = credentials => async dispatch => {
@@ -64,10 +66,33 @@ const logOut = () => async dispatch => {
   }
 };
 
+const getCurrentUser = () => async (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
+
+  if (!persistedToken) {
+    return;
+  }
+
+  token.set(persistedToken);
+
+  dispatch(getCurrentUserRequest());
+
+  try {
+    const response = await axios.get('/users/current');
+
+    dispatch(getCurrentUserSuccess(response.data));
+  } catch (error) {
+    dispatch(getCurrentUserError(error.message));
+  }
+};
+
 const authOperations = {
   register,
   logIn,
   logOut,
+  getCurrentUser,
 };
 
 export default authOperations;

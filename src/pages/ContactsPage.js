@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
-import { Notification } from 'react-pnotify';
+// import { Notification } from 'react-pnotify';
 
 import Container from '../components/Container';
 import ContactForm from '../components/ContactForm';
@@ -23,7 +23,8 @@ class App extends Component {
   }
 
   render() {
-    const { error, isLoading } = this.props;
+    // const { error, isLoading } = this.props;
+    const { isLoading } = this.props;
 
     return (
       <Container>
@@ -41,7 +42,7 @@ class App extends Component {
           <Loader type="ThreeDots" color="#00BFFF" width={100} height={100} />
         )}
 
-        {error && <Notification type="error" title={error} delay={2000} />}
+        {/* {error && <Notification type="error" title={error} delay={2000} />} */}
       </Container>
     );
   }
