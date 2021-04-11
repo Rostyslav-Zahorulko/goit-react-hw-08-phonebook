@@ -31,12 +31,12 @@ const register = credentials => async dispatch => {
   dispatch(registerRequest());
 
   try {
-    const response = await axios.post('/users/signup', credentials);
+    const { data } = await axios.post('/users/signup', credentials);
 
-    token.set(response.data.token);
-    dispatch(registerSuccess(response.data));
-  } catch (error) {
-    dispatch(registerError(error.message));
+    token.set(data.token);
+    dispatch(registerSuccess(data));
+  } catch ({ message }) {
+    dispatch(registerError(message));
   }
 };
 
@@ -44,12 +44,12 @@ const logIn = credentials => async dispatch => {
   dispatch(loginRequest());
 
   try {
-    const response = await axios.post('/users/login', credentials);
+    const { data } = await axios.post('/users/login', credentials);
 
-    token.set(response.data.token);
-    dispatch(loginSuccess(response.data));
-  } catch (error) {
-    dispatch(loginError(error.message));
+    token.set(data.token);
+    dispatch(loginSuccess(data));
+  } catch ({ message }) {
+    dispatch(loginError(message));
   }
 };
 
@@ -61,8 +61,8 @@ const logOut = () => async dispatch => {
 
     token.unset();
     dispatch(logoutSuccess());
-  } catch (error) {
-    dispatch(logoutError(error.message));
+  } catch ({ message }) {
+    dispatch(logoutError(message));
   }
 };
 
@@ -80,11 +80,11 @@ const getCurrentUser = () => async (dispatch, getState) => {
   dispatch(getCurrentUserRequest());
 
   try {
-    const response = await axios.get('/users/current');
+    const { data } = await axios.get('/users/current');
 
-    dispatch(getCurrentUserSuccess(response.data));
-  } catch (error) {
-    dispatch(getCurrentUserError(error.message));
+    dispatch(getCurrentUserSuccess(data));
+  } catch ({ message }) {
+    dispatch(getCurrentUserError(message));
   }
 };
 

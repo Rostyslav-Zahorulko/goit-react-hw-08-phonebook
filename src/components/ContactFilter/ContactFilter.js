@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import './Filter.scss';
+import './ContactFilter.scss';
 import { contactsSelectors, contactsActions } from '../../redux/contacts';
 
-const Filter = ({ filter, onChange }) => (
+const ContactFilter = ({ filter, onChange }) => (
   <label className="filter">
     Find contacts by name
     <input
@@ -25,9 +25,9 @@ const mapDispatchToProps = dispatch => ({
     dispatch(contactsActions.filterContactsByName(event.currentTarget.value)),
 });
 
-Filter.propTypes = {
+ContactFilter.propTypes = {
   filter: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactFilter);

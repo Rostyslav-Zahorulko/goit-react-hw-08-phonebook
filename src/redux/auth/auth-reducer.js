@@ -1,6 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-
 import { authActions } from '../auth';
 
 const {

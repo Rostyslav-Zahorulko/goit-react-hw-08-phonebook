@@ -5,8 +5,8 @@ import Loader from 'react-loader-spinner';
 // import { Notification } from 'react-pnotify';
 
 import Container from '../components/Container';
-import ContactForm from '../components/ContactForm';
-import Filter from '../components/Filter';
+import ContactGenerationForm from '../components/ContactGenerationForm';
+import ContactFilter from '../components/ContactFilter';
 import ContactList from '../components/ContactList';
 
 import { contactsSelectors, contactsOperations } from '../redux/contacts';
@@ -23,18 +23,18 @@ class App extends Component {
   }
 
   render() {
-    // const { error, isLoading } = this.props;
+    // const { isLoading, error } = this.props;
     const { isLoading } = this.props;
 
     return (
       <Container>
         <h1 className="app-title">Phonebook</h1>
 
-        <ContactForm />
+        <ContactGenerationForm />
 
         <h2 className="section-title">Contacts</h2>
 
-        <Filter />
+        <ContactFilter />
 
         <ContactList />
 

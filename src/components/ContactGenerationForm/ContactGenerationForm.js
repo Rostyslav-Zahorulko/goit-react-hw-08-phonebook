@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import './ContactForm.scss';
+import './ContactGenerationForm.scss';
 import { contactsSelectors, contactsOperations } from '../../redux/contacts';
 
-class ContactForm extends Component {
+class ContactGenerationForm extends Component {
   state = {
     name: '',
     number: '',
@@ -94,4 +94,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(contactsOperations.addContact(name, number)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ContactGenerationForm);
