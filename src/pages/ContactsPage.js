@@ -18,6 +18,10 @@ class App extends Component {
     fetchContacts: PropTypes.func.isRequired,
   };
 
+  componentDidMount() {
+    this.props.fetchContacts();
+  }
+
   render() {
     const { error, isLoading } = this.props;
 
