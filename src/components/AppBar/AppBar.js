@@ -1,13 +1,11 @@
 import { Component } from 'react';
-import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-
-import { authSelectors } from '../../redux/auth';
-
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import AuthNav from '../AuthNav';
 import UserMenu from '../UserMenu';
-
 import './AppBar.scss';
+import { authSelectors } from '../../redux/auth';
 
 class AppBar extends Component {
   render() {
@@ -20,7 +18,6 @@ class AppBar extends Component {
             className="AppBar__Link"
             activeClassName="AppBar__ActiveLink"
             to="/contacts"
-            exact
           >
             Contacts
           </NavLink>
@@ -31,6 +28,10 @@ class AppBar extends Component {
     );
   }
 }
+
+AppBar.propTypes = {
+  isAuthenticated: PropTypes.bool.isRequired,
+};
 
 const mapStateToProps = state => ({
   isAuthenticated: authSelectors.getIsAuthenticated(state),

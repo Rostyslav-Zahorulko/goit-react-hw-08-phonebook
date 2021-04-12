@@ -1,6 +1,7 @@
 import { Component, Suspense, lazy } from 'react';
 import { Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Container from './components/Container';
 import AppBar from './components/AppBar';
@@ -22,8 +23,11 @@ const ContactsPage = lazy(() =>
 );
 
 class App extends Component {
+  static propTypes = {
+    onGetCurrentUser: PropTypes.func.isRequired,
+  };
+
   componentDidMount() {
-    console.log('Hello from App componentDidMount');
     this.props.onGetCurrentUser();
   }
 
@@ -58,8 +62,12 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  onGetCurrentUser: () => dispatch(authOperations.getCurrentUser()),
-});
+// const mapDispatchToProps = dispatch => ({
+//   onGetCurrentUser: () => dispatch(authOperations.getCurrentUser()),
+// });
+
+const mapDispatchToProps = {
+  onGetCurrentUser: authOperations.getCurrentUser,
+};
 
 export default connect(null, mapDispatchToProps)(App);

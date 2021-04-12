@@ -17,14 +17,6 @@ const ContactList = ({ contacts, onClick }) => (
   </ul>
 );
 
-const mapStateToProps = state => ({
-  contacts: contactsSelectors.getFilteredContacts(state),
-});
-
-const mapDispatchToProps = dispatch => ({
-  onClick: id => dispatch(contactsOperations.deleteContact(id)),
-});
-
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
@@ -35,5 +27,13 @@ ContactList.propTypes = {
   ).isRequired,
   onClick: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = state => ({
+  contacts: contactsSelectors.getFilteredContacts(state),
+});
+
+const mapDispatchToProps = dispatch => ({
+  onClick: id => dispatch(contactsOperations.deleteContact(id)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

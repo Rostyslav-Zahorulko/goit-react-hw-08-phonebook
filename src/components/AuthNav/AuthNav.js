@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-
 import './AuthNav.scss';
 
 const AuthNav = () => {
@@ -11,7 +10,6 @@ const AuthNav = () => {
             className="AuthNav__Link"
             activeClassName="AuthNav__ActiveLink"
             to="/register"
-            exact
           >
             Register
           </NavLink>
@@ -21,7 +19,6 @@ const AuthNav = () => {
             className="AuthNav__Link"
             activeClassName="AuthNav__ActiveLink"
             to="/login"
-            exact
           >
             Login
           </NavLink>

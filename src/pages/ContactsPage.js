@@ -2,7 +2,6 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
-// import { Notification } from 'react-pnotify';
 
 import Container from '../components/Container';
 import ContactGenerationForm from '../components/ContactGenerationForm';
@@ -14,17 +13,14 @@ import { contactsSelectors, contactsOperations } from '../redux/contacts';
 class App extends Component {
   static propTypes = {
     isLoading: PropTypes.bool.isRequired,
-    error: PropTypes.string.isRequired,
     fetchContacts: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
-    console.log('Hello from ContactsPage componentDidMount');
     this.props.fetchContacts();
   }
 
   render() {
-    // const { isLoading, error } = this.props;
     const { isLoading } = this.props;
 
     return (
@@ -42,20 +38,21 @@ class App extends Component {
         {isLoading && (
           <Loader type="ThreeDots" color="#00BFFF" width={100} height={100} />
         )}
-
-        {/* {error && <Notification type="error" title={error} delay={2000} />} */}
       </Container>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  isLoading: contactsSelectors.getLoading(state),
-  error: contactsSelectors.getError(state),
+  isLoading: contactsSelectors.getIsLoading(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchContacts: () => dispatch(contactsOperations.fetchContacts()),
-});
+// const mapDispatchToProps = dispatch => ({
+//   fetchContacts: () => dispatch(contactsOperations.fetchContacts()),
+// });
+
+const mapDispatchToProps = {
+  fetchContacts: contactsOperations.fetchContacts,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

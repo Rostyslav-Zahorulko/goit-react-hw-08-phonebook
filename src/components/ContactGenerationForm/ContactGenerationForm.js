@@ -51,7 +51,11 @@ class ContactGenerationForm extends Component {
     const { name, number } = this.state;
 
     return (
-      <form className="form" onSubmit={this.handleFormSubmit}>
+      <form
+        className="form"
+        onSubmit={this.handleFormSubmit}
+        autoComplete="off"
+      >
         <label className="form-field">
           Name
           <input

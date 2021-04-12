@@ -16,6 +16,11 @@ const ContactFilter = ({ filter, onChange }) => (
   </label>
 );
 
+ContactFilter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = state => ({
   filter: contactsSelectors.getFilter(state),
 });
@@ -24,10 +29,5 @@ const mapDispatchToProps = dispatch => ({
   onChange: event =>
     dispatch(contactsActions.filterContactsByName(event.currentTarget.value)),
 });
-
-ContactFilter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactFilter);

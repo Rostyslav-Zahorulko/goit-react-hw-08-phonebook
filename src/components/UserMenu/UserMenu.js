@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import PropTypes from 'prop-types';
 import defaultAvatar from './default-avatar.png';
-
-import { authSelectors, authOperations } from '../../redux/auth';
-
 import './UserMenu.scss';
+import { authSelectors, authOperations } from '../../redux/auth';
 
 const UserMenu = ({ avatar, name, onLogout }) => (
   <div className="UserMenu">
@@ -17,17 +15,23 @@ const UserMenu = ({ avatar, name, onLogout }) => (
   </div>
 );
 
+UserMenu.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  onLogout: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = state => ({
   avatar: defaultAvatar,
   name: authSelectors.getUsername(state),
 });
 
-// const mapDispatchToProps = {
-//   onLogout: authOperations.logOut,
-// };
+// const mapDispatchToProps = dispatch => ({
+//   onLogout: () => dispatch(authOperations.logOut()),
+// });
 
-const mapDispatchToProps = dispatch => ({
-  onLogout: () => dispatch(authOperations.logOut()),
-});
+const mapDispatchToProps = {
+  onLogout: authOperations.logOut,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);

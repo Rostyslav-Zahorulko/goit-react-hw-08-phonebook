@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { authOperations } from '../redux/auth';
 
 const styles = {
@@ -71,12 +72,16 @@ class LoginPage extends Component {
   }
 }
 
-// const mapDispatchToProps = {
-//   onLogin: authOperations.logIn,
-// };
+LoginPage.propTypes = {
+  onLogin: PropTypes.func.isRequired,
+};
 
-const mapDispatchToProps = dispatch => ({
-  onLogin: data => dispatch(authOperations.logIn(data)),
-});
+// const mapDispatchToProps = dispatch => ({
+//   onLogin: data => dispatch(authOperations.logIn(data)),
+// });
+
+const mapDispatchToProps = {
+  onLogin: authOperations.logIn,
+};
 
 export default connect(null, mapDispatchToProps)(LoginPage);
