@@ -15,14 +15,16 @@ class AppBar extends Component {
 
     return (
       <header className="AppBar">
-        <NavLink
-          className="AppBar__Link"
-          activeClassName="AppBar__ActiveLink"
-          to="/contacts"
-          exact
-        >
-          Contacts
-        </NavLink>
+        {isAuthenticated && (
+          <NavLink
+            className="AppBar__Link"
+            activeClassName="AppBar__ActiveLink"
+            to="/contacts"
+            exact
+          >
+            Contacts
+          </NavLink>
+        )}
 
         {isAuthenticated ? <UserMenu /> : <AuthNav />}
       </header>

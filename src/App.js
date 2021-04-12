@@ -8,6 +8,8 @@ import ContactsPage from './pages/ContactsPage';
 
 import Container from './components/Container';
 import AppBar from './components/AppBar';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
 
 import { authOperations } from './redux/auth';
 
@@ -22,9 +24,23 @@ class App extends Component {
         <AppBar />
 
         <Switch>
-          <Route exact path="/register" component={RegisterPage} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/contacts" component={ContactsPage} />
+          <PublicRoute
+            path="/register"
+            restricted
+            component={RegisterPage}
+            redirectTo="/contacts"
+          />
+          <PublicRoute
+            path="/login"
+            restricted
+            component={LoginPage}
+            redirectTo="/contacts"
+          />
+          <PrivateRoute
+            path="/contacts"
+            component={ContactsPage}
+            redirectTo="/login"
+          />
         </Switch>
       </Container>
     );
