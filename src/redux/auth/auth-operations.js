@@ -34,6 +34,7 @@ const register = credentials => async dispatch => {
     const { data } = await axios.post('/users/signup', credentials);
 
     token.set(data.token);
+
     dispatch(registerSuccess(data));
   } catch ({ message }) {
     dispatch(registerError(message));
@@ -47,6 +48,7 @@ const logIn = credentials => async dispatch => {
     const { data } = await axios.post('/users/login', credentials);
 
     token.set(data.token);
+
     dispatch(loginSuccess(data));
   } catch ({ message }) {
     dispatch(loginError(message));
@@ -60,6 +62,7 @@ const logOut = () => async dispatch => {
     await axios.post('/users/logout');
 
     token.unset();
+
     dispatch(logoutSuccess());
   } catch ({ message }) {
     dispatch(logoutError(message));

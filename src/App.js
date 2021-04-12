@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import RegisterPage from './pages/RegisterPage';
@@ -15,6 +15,7 @@ import { authOperations } from './redux/auth';
 
 class App extends Component {
   componentDidMount() {
+    console.log('Hello from App componentDidMount');
     this.props.onGetCurrentUser();
   }
 

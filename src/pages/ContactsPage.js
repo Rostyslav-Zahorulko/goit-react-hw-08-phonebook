@@ -19,6 +19,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    console.log('Hello from ContactsPage componentDidMount');
     this.props.fetchContacts();
   }
 
