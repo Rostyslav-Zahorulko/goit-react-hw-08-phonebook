@@ -21,16 +21,16 @@ class LoginPage extends Component {
     password: '',
   };
 
-  handleChange = ({ target: { name, value } }) => {
+  handleInputChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
+  handleFormSubmit = event => {
+    event.preventDefault();
 
     this.props.onLogin(this.state);
 
-    this.setState({ name: '', email: '', password: '' });
+    this.setState({ email: '', password: '' });
   };
 
   render() {
@@ -41,7 +41,7 @@ class LoginPage extends Component {
         <h1>Login page</h1>
 
         <form
-          onSubmit={this.handleSubmit}
+          onSubmit={this.handleFormSubmit}
           style={styles.form}
           autoComplete="off"
         >
@@ -51,7 +51,7 @@ class LoginPage extends Component {
               type="email"
               name="email"
               value={email}
-              onChange={this.handleChange}
+              onChange={this.handleInputChange}
             />
           </label>
 
@@ -61,7 +61,7 @@ class LoginPage extends Component {
               type="password"
               name="password"
               value={password}
-              onChange={this.handleChange}
+              onChange={this.handleInputChange}
             />
           </label>
 

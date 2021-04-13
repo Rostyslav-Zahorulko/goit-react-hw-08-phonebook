@@ -22,12 +22,12 @@ class RegisterPage extends Component {
     password: '',
   };
 
-  handleChange = ({ target: { name, value } }) => {
+  handleInputChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
+  handleFormSubmit = event => {
+    event.preventDefault();
 
     this.props.onRegister(this.state);
 
@@ -42,7 +42,7 @@ class RegisterPage extends Component {
         <h1>Registration page</h1>
 
         <form
-          onSubmit={this.handleSubmit}
+          onSubmit={this.handleFormSubmit}
           style={styles.form}
           autoComplete="off"
         >
@@ -52,7 +52,7 @@ class RegisterPage extends Component {
               type="text"
               name="name"
               value={name}
-              onChange={this.handleChange}
+              onChange={this.handleInputChange}
             />
           </label>
 
@@ -62,7 +62,7 @@ class RegisterPage extends Component {
               type="email"
               name="email"
               value={email}
-              onChange={this.handleChange}
+              onChange={this.handleInputChange}
             />
           </label>
 
@@ -72,7 +72,7 @@ class RegisterPage extends Component {
               type="password"
               name="password"
               value={password}
-              onChange={this.handleChange}
+              onChange={this.handleInputChange}
             />
           </label>
 

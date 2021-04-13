@@ -27,7 +27,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onChange: event =>
-    dispatch(contactsActions.filterContactsByName(event.currentTarget.value)),
+    dispatch(contactsActions.filterContactsByName(event.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactFilter);

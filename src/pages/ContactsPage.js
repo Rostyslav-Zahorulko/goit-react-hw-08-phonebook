@@ -2,12 +2,10 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
-
 import Container from '../components/Container';
 import ContactGenerationForm from '../components/ContactGenerationForm';
 import ContactFilter from '../components/ContactFilter';
 import ContactList from '../components/ContactList';
-
 import { contactsSelectors, contactsOperations } from '../redux/contacts';
 
 class App extends Component {

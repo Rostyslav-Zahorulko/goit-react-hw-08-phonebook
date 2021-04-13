@@ -21,9 +21,7 @@ class ContactGenerationForm extends Component {
     onSubmit: PropTypes.func.isRequired,
   };
 
-  handleInputChange = event => {
-    const { name, value } = event.currentTarget;
-
+  handleInputChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
   };
 
