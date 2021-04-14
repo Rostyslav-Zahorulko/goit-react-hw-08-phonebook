@@ -1,19 +1,8 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { authOperations } from '../redux/auth';
-
-const styles = {
-  form: {
-    width: 320,
-  },
-
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import './LoginPage.scss';
+import { authOperations } from '../../redux/auth';
 
 class LoginPage extends Component {
   state = {
@@ -38,34 +27,41 @@ class LoginPage extends Component {
 
     return (
       <div>
-        <h1>Login page</h1>
+        <b className="login-page-call">Please, log in</b>
 
         <form
-          onSubmit={this.handleFormSubmit}
-          style={styles.form}
+          className="login-form"
           autoComplete="off"
+          onSubmit={this.handleFormSubmit}
         >
-          <label style={styles.label}>
+          <label className="login-form-field">
             Email
             <input
+              className="login-form-input"
               type="email"
               name="email"
               value={email}
+              required
+              placeholder="peter.parker@gmail.com"
               onChange={this.handleInputChange}
             />
           </label>
 
-          <label style={styles.label}>
+          <label className="login-form-field">
             Password
             <input
+              className="login-form-input"
               type="password"
               name="password"
               value={password}
+              required
               onChange={this.handleInputChange}
             />
           </label>
 
-          <button type="submit">Enter</button>
+          <button className="login-form-button" type="submit">
+            Log in
+          </button>
         </form>
       </div>
     );

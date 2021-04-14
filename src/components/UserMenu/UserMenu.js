@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import defaultUserAvatar from './default-user-avatar.svg';
+import defaultUserAvatar from '../../icons/default-user-avatar.svg';
 import './UserMenu.scss';
 import { authSelectors, authOperations } from '../../redux/auth';
 
@@ -12,9 +12,10 @@ const UserMenu = ({ avatar, email, onLogout }) => (
       src={avatar}
       alt="User avatar"
       width="32"
+      height="32"
     />
-    <span className="UserMenu__Name">Welcome, {email}</span>
-    <button type="button" onClick={onLogout}>
+    <span className="UserMenu__Email">Welcome, {email}</span>
+    <button className="UserMenu__Button" type="button" onClick={onLogout}>
       Logout
     </button>
   </div>

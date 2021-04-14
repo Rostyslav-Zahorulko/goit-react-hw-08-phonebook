@@ -1,5 +1,5 @@
 .contact-list {
-  margin: 0;
-  padding-left: 30px;
-  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px;
 }

@@ -2,11 +2,12 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
-import Container from '../components/Container';
-import ContactGenerationForm from '../components/ContactGenerationForm';
-import ContactFilter from '../components/ContactFilter';
-import ContactList from '../components/ContactList';
-import { contactsSelectors, contactsOperations } from '../redux/contacts';
+import Container from '../../components/Container';
+import ContactGenerationForm from '../../components/ContactGenerationForm';
+import ContactFilter from '../../components/ContactFilter';
+import ContactList from '../../components/ContactList';
+import './ContactsPage.scss';
+import { contactsSelectors, contactsOperations } from '../../redux/contacts';
 
 class App extends Component {
   static propTypes = {
@@ -23,18 +24,18 @@ class App extends Component {
 
     return (
       <Container>
-        <h1 className="app-title">Phonebook</h1>
+        <h1 className="contacts-page-title">Phonebook</h1>
 
         <ContactGenerationForm />
-
-        <h2 className="section-title">Contacts</h2>
 
         <ContactFilter />
 
         <ContactList />
 
         {isLoading && (
-          <Loader type="ThreeDots" color="#00BFFF" width={100} height={100} />
+          <div className="contacts-page-loader">
+            <Loader type="ThreeDots" color="#00BFFF" width={150} height={100} />
+          </div>
         )}
       </Container>
     );

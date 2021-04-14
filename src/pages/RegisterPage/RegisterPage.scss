@@ -1,0 +1,59 @@
+.signup-page-call {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.signup-form {
+  width: 400px;
+  margin: 0 auto;
+  padding: 10px;
+  border: 2px solid silver;
+  border-radius: 5px;
+}
+
+.signup-form-field {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.signup-form-input {
+  display: block;
+  width: 374px;
+  margin-top: 10px;
+  border: 2px solid silver;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 24px;
+  line-height: 1;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border: 2px solid skyblue;
+  }
+}
+
+.signup-form-button {
+  min-width: 80px;
+  padding: 5px;
+  border: 2px solid silver;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+  background-color: white;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border: 2px solid skyblue;
+  }
+
+  &:active {
+    background-color: skyblue;
+  }
+}

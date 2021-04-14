@@ -7,7 +7,29 @@
   margin-right: 8px;
 }
 
-.UserMenu__Name {
+.UserMenu__Email {
   margin-right: 12px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.UserMenu__Button {
+  min-width: 100px;
+  padding: 5px;
+  border: 2px solid silver;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+  background-color: white;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border: 2px solid skyblue;
+  }
+
+  &:active {
+    background-color: skyblue;
+  }
 }

@@ -4,10 +4,10 @@ import './ContactFilter.scss';
 import { contactsSelectors, contactsActions } from '../../redux/contacts';
 
 const ContactFilter = ({ filter, onChange }) => (
-  <label className="filter">
+  <label className="contacts-filter">
     Find contacts by name
     <input
-      className="filter-input"
+      className="contacts-filter-input"
       type="text"
       name="filter"
       value={filter}

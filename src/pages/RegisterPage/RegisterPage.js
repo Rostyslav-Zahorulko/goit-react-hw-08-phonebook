@@ -1,19 +1,8 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { authOperations } from '../redux/auth';
-
-const styles = {
-  form: {
-    width: 320,
-  },
-
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import './RegisterPage.scss';
+import { authOperations } from '../../redux/auth';
 
 class RegisterPage extends Component {
   state = {
@@ -39,44 +28,56 @@ class RegisterPage extends Component {
 
     return (
       <div>
-        <h1>Registration page</h1>
+        <b className="signup-page-call">Please, sign up</b>
 
         <form
-          onSubmit={this.handleFormSubmit}
-          style={styles.form}
+          className="signup-form"
           autoComplete="off"
+          onSubmit={this.handleFormSubmit}
         >
-          <label style={styles.label}>
+          <label className="signup-form-field">
             Name
             <input
+              className="signup-form-input"
               type="text"
               name="name"
               value={name}
+              required
+              placeholder="Peter Parker"
               onChange={this.handleInputChange}
             />
           </label>
 
-          <label style={styles.label}>
+          <label className="signup-form-field">
             Email
             <input
+              className="signup-form-input"
               type="email"
               name="email"
               value={email}
+              required
+              placeholder="peter.parker@gmail.com"
               onChange={this.handleInputChange}
             />
           </label>
 
-          <label style={styles.label}>
+          <label className="signup-form-field">
             Password
             <input
+              className="signup-form-input"
               type="password"
               name="password"
               value={password}
+              required
+              pattern=".{7,}"
+              title="Must contain at least 7 or more characters"
               onChange={this.handleInputChange}
             />
           </label>
 
-          <button type="submit">Register</button>
+          <button className="signup-form-button" type="submit">
+            Sign up
+          </button>
         </form>
       </div>
     );

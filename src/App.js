@@ -11,15 +11,19 @@ import PublicRoute from './components/PublicRoute';
 import { authOperations } from './redux/auth';
 
 const RegisterPage = lazy(() =>
-  import('./pages/RegisterPage' /* webpackChunkName: "register-page" */),
+  import(
+    './pages/RegisterPage/RegisterPage' /* webpackChunkName: "register-page" */
+  ),
 );
 
 const LoginPage = lazy(() =>
-  import('./pages/LoginPage' /* webpackChunkName: "login-page" */),
+  import('./pages/LoginPage/LoginPage' /* webpackChunkName: "login-page" */),
 );
 
 const ContactsPage = lazy(() =>
-  import('./pages/ContactsPage' /* webpackChunkName: "contacts-page" */),
+  import(
+    './pages/ContactsPage/ContactsPage' /* webpackChunkName: "contacts-page" */
+  ),
 );
 
 class App extends Component {

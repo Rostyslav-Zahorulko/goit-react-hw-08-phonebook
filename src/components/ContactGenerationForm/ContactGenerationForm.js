@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import IconButton from '../IconButton';
+import { ReactComponent as AddContactIcon } from '../../icons/add-contact-icon.svg';
 import './ContactGenerationForm.scss';
 import { contactsSelectors, contactsOperations } from '../../redux/contacts';
 
@@ -50,14 +52,14 @@ class ContactGenerationForm extends Component {
 
     return (
       <form
-        className="form"
-        onSubmit={this.handleFormSubmit}
+        className="contact-generation-form"
         autoComplete="off"
+        onSubmit={this.handleFormSubmit}
       >
-        <label className="form-field">
+        <label className="contact-generation-form-field">
           Name
           <input
-            className="form-input"
+            className="contact-generation-form-input"
             type="text"
             name="name"
             value={name}
@@ -67,10 +69,10 @@ class ContactGenerationForm extends Component {
           ></input>
         </label>
 
-        <label className="form-field">
+        <label className="contact-generation-form-field">
           Number
           <input
-            className="form-input"
+            className="contact-generation-form-input"
             type="tel"
             name="number"
             value={number}
@@ -81,7 +83,9 @@ class ContactGenerationForm extends Component {
           ></input>
         </label>
 
-        <button className="add-contact-button">Add contact</button>
+        <IconButton type="submit" aria-label="Add contact">
+          <AddContactIcon width="32" height="32" />
+        </IconButton>
       </form>
     );
   }
