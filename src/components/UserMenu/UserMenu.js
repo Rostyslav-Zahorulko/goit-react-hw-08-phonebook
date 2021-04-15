@@ -6,16 +6,18 @@ import './UserMenu.scss';
 import { authSelectors, authOperations } from '../../redux/auth';
 
 const UserMenu = ({ avatar, email, onLogout }) => (
-  <div className="UserMenu">
-    <img
-      className="UserMenu__Avatar"
-      src={avatar}
-      alt="User avatar"
-      width="32"
-      height="32"
-    />
-    <span className="UserMenu__Email">Welcome, {email}</span>
-    <button className="UserMenu__Button" type="button" onClick={onLogout}>
+  <div className="user-menu">
+    <div className="user-menu-info">
+      <img
+        className="user-menu-avatar"
+        src={avatar}
+        alt="User avatar"
+        width="32"
+        height="32"
+      />
+      <span className="user-menu-email">{email}</span>
+    </div>
+    <button className="user-menu-button" type="button" onClick={onLogout}>
       Logout
     </button>
   </div>

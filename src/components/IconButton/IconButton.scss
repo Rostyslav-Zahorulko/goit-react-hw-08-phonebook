@@ -1,16 +1,14 @@
 .icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   padding: 10px;
   border: none;
   border-radius: 50%;
-  color: white;
-  font: inherit;
   background-color: gainsboro;
   cursor: pointer;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {

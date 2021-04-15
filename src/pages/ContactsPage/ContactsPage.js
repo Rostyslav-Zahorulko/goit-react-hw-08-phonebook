@@ -2,7 +2,6 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
-import Container from '../../components/Container';
 import ContactGenerationForm from '../../components/ContactGenerationForm';
 import ContactFilter from '../../components/ContactFilter';
 import ContactList from '../../components/ContactList';
@@ -23,7 +22,7 @@ class App extends Component {
     const { isLoading } = this.props;
 
     return (
-      <Container>
+      <div>
         <h1 className="contacts-page-title">Phonebook</h1>
 
         <ContactGenerationForm />
@@ -37,7 +36,7 @@ class App extends Component {
             <Loader type="ThreeDots" color="#00BFFF" width={150} height={100} />
           </div>
         )}
-      </Container>
+      </div>
     );
   }
 }

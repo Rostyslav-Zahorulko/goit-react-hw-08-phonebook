@@ -1,24 +1,27 @@
 import { NavLink } from 'react-router-dom';
 import './AuthNav.scss';
+import routes from '../../routes';
+
+const { register, login } = routes;
 
 const AuthNav = () => {
   return (
-    <nav className="AuthNav">
-      <ul className="AuthNav__List">
-        <li className="AuthNav__Item">
+    <nav>
+      <ul className="auth-nav-list">
+        <li className="auth-nav-list-item">
           <NavLink
-            className="AuthNav__Link"
-            activeClassName="AuthNav__ActiveLink"
-            to="/register"
+            className="auth-nav-list-item-link"
+            activeClassName="auth-nav-list-item-active-link"
+            to={register}
           >
             Register
           </NavLink>
         </li>
-        <li className="AuthNav__Item">
+        <li className="auth-nav-list-item">
           <NavLink
-            className="AuthNav__Link"
-            activeClassName="AuthNav__ActiveLink"
-            to="/login"
+            className="auth-nav-list-item-link"
+            activeClassName="auth-nav-list-item-active-link"
+            to={login}
           >
             Login
           </NavLink>

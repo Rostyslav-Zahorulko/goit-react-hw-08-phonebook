@@ -2,13 +2,16 @@ import { Component, Suspense, lazy } from 'react';
 import { Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import Container from './components/Container';
 import AppBar from './components/AppBar';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
-
 import { authOperations } from './redux/auth';
+import routes from './routes';
+
+const HomePage = lazy(() =>
+  import('./pages/HomePage/HomePage' /* webpackChunkName: "home-page" */),
+);
 
 const RegisterPage = lazy(() =>
   import(
@@ -26,6 +29,8 @@ const ContactsPage = lazy(() =>
   ),
 );
 
+const { home, contacts, register, login } = routes;
+
 class App extends Component {
   static propTypes = {
     onGetCurrentUser: PropTypes.func.isRequired,
@@ -42,23 +47,25 @@ class App extends Component {
 
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
+            <PublicRoute exact path={home} component={HomePage} />
             <PublicRoute
-              path="/register"
+              path={register}
               restricted
               component={RegisterPage}
-              redirectTo="/contacts"
+              redirectTo={contacts}
             />
             <PublicRoute
-              path="/login"
+              path={login}
               restricted
               component={LoginPage}
-              redirectTo="/contacts"
+              redirectTo={contacts}
             />
             <PrivateRoute
-              path="/contacts"
+              path={contacts}
               component={ContactsPage}
-              redirectTo="/login"
+              redirectTo={login}
             />
+            <PublicRoute component={HomePage} />
           </Switch>
         </Suspense>
       </Container>

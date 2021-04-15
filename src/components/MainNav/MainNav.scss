@@ -1,12 +1,12 @@
-.auth-nav-list {
+.main-nav-list {
   display: flex;
 }
 
-.auth-nav-list-item:not(:last-child) {
+.main-nav-list-item:not(:last-child) {
   margin-right: 20px;
 }
 
-.auth-nav-list-item-link {
+.main-nav-list-item-link {
   display: inline-block;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -15,6 +15,6 @@
   color: #2a363b;
 }
 
-.auth-nav-list-item-active-link {
+.main-nav-list-item-active-link {
   color: #e84a5f;
 }

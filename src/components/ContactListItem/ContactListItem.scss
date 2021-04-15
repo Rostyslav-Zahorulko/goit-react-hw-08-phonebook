@@ -2,13 +2,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-basis: calc((100% - 180px) / 6);
   margin: 15px;
   padding: 8px;
   border: 2px solid silver;
   border-radius: 5px;
-
+  flex-basis: calc((100% - 60px) / 2);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    margin: 15px;
+    flex-basis: calc((100% - 90px) / 3);
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-basis: calc((100% - 150px) / 5);
+  }
 
   &:hover,
   &:focus {

@@ -1,4 +1,4 @@
-.AppBar {
+.app-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,15 +6,16 @@
   border-bottom: 1px solid #2a363b;
 }
 
-.AppBar__Link {
+.app-bar-link {
   display: inline-block;
-  text-decoration: none;
-  padding: 12px;
+  margin-right: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   font-size: 18px;
   font-weight: 700;
   color: #2a363b;
 }
 
-.AppBar__ActiveLink {
+.app-bar-active-link {
   color: #e84a5f;
 }

@@ -1,34 +1,53 @@
 .login-page-call {
   display: block;
   margin-bottom: 20px;
-  font-size: 40px;
+  font-size: 32px;
   text-align: center;
+
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+  }
 }
 
 .login-form {
-  width: 400px;
   margin: 0 auto;
   padding: 10px;
   border: 2px solid silver;
   border-radius: 5px;
+
+  @media screen and (min-width: 480px) {
+    width: 450px;
+  }
 }
 
 .login-form-field {
   display: block;
   margin-bottom: 20px;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1;
+
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+  }
 }
 
 .login-form-input {
   display: block;
-  width: 374px;
+  width: 100%;
   margin-top: 10px;
   border: 2px solid silver;
   border-radius: 5px;
   padding: 5px;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1;
+
+  @media screen and (min-width: 480px) {
+    width: 426px;
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+  }
 
   &:hover,
   &:focus {
