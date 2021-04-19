@@ -8,7 +8,7 @@ import ContactList from '../../components/ContactList';
 import './ContactsPage.scss';
 import { contactsSelectors, contactsOperations } from '../../redux/contacts';
 
-class App extends Component {
+class ContactsPage extends Component {
   static propTypes = {
     isLoading: PropTypes.bool.isRequired,
     fetchContacts: PropTypes.func.isRequired,
@@ -53,4 +53,4 @@ const mapDispatchToProps = {
   fetchContacts: contactsOperations.fetchContacts,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsPage);
